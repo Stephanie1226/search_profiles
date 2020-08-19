@@ -11,10 +11,10 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
-import { searchStudents, searchTags, requestStudents, updateStudentsData, filterStudentsData } from './redux/reducers'
+import { searchStudents, searchTags, requestStudents, updateStudentsData } from './redux/reducers'
 
 const logger = createLogger()
-const rootReducers = combineReducers({ searchStudents, searchTags, requestStudents, updateStudentsData, filterStudentsData })
+const rootReducers = combineReducers({ searchStudents, searchTags, requestStudents, updateStudentsData})
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware, logger))
 
 ReactDOM.render(

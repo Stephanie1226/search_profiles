@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setSearchField, setSearchTagField, requestStudents, updateStudentsData, filterStudentsData } from '../redux/actions';
+import { setSearchField, setSearchTagField, requestStudents, updateStudentsData } from '../redux/actions';
 
 import SearchBox from '../components/searchbox/SearchBox';
 import Scroll from '../components/scroll/Scroll';
@@ -15,8 +15,7 @@ const mapStateToProps = (state) => {
     searchTagField: state.searchTags.searchTagField,
     students: state.requestStudents.students,
     isPending: state.requestStudents.isPending,
-    updatedStudents: state.updateStudentsData.updatedStudents,
-    filteredStudents: state.filterStudentsData.filteredStudents
+    updatedStudents: state.updateStudentsData.updatedStudents
   }
 }
 
@@ -25,56 +24,26 @@ const mapDispatchToProps = (dispatch) => {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
     onSearchTagChange: (event) => dispatch(setSearchTagField(event.target.value)),
     onRequestStudents: () => dispatch(requestStudents()),
-    onUpdateStudents: (data) => dispatch(updateStudentsData(data)),
-    onFilterStudents: (data) => dispatch(filterStudentsData(data))
+    onUpdateStudents: (data) => dispatch(updateStudentsData(data))
   }
 }
 
 class App extends Component {
   componentDidMount() {
     this.props.onRequestStudents();
-    this.props.onUpdateStudents(this.props.students);
   }
 
   render() {
-    const { searchField, searchTagField, students, isPending, updatedStudents, filteredStudents } = this.props;
-    const { onSearchChange, onSearchTagChange, onUpdateStudents, onFilterStudents } = this.props;
+    const { searchField, students, isPending, updatedStudents } = this.props;
+    const { onSearchChange, onSearchTagChange, onUpdateStudents } = this.props;
+    onUpdateStudents(students);
     const filteredFirstName = updatedStudents.filter(student => {
       return student.firstName.toLowerCase().includes(searchField.toLowerCase());
     });
     const filteredLastName = updatedStudents.filter(student => {
       return student.lastName.toLowerCase().includes(searchField.toLowerCase());
     });
-    const filteredByTag = updatedStudents.filter(student => {
-      if (student.tags.length > 0) {
-        return student.tags.includes(searchTagField);
-      }
-    });
-    const filteredByName = [...new Set([...filteredFirstName,...filteredLastName])];
-
-    const combined = filteredStudents.concat(filteredByTag);
-    let intersection = [];
-    let result = {};
-    if (filteredStudents !== [] && filteredByTag !== []) {
-      combined.forEach(function(item) {
-        result[JSON.stringify(item)] = result[JSON.stringify(item)] ? result[JSON.stringify(item)] + 1 : 1;
-      });
-      for (let [key, value] of Object.entries(result)) {
-        if (value > 1) {
-          intersection.push(JSON.parse(key));
-        };
-      };
-      console.log(intersection)
-    }
-    
-    if (searchField === '' && searchTagField !== '') {
-      onFilterStudents(filteredByTag);
-    } else if (searchField !== '' && searchTagField === ''){
-      onFilterStudents(filteredByName);
-    }
-    else {
-      onFilterStudents(intersection);
-    }
+    const filteredStudents = [...new Set([...filteredFirstName,...filteredLastName])];
 
     return (
       <div className="tc main-container">

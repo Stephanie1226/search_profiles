@@ -4,8 +4,7 @@ import {
   REQUEST_STUDENTS_PENDING,
   REQUEST_STUDENTS_SUCCESS,
   REQUEST_STUDENTS_FAILED,
-  UPDATE_STUDENTS_DATA,
-  FILTERED_STUDENTS_DATA
+  UPDATE_STUDENTS_DATA
  } from './constants'
 
 const initialStateSearch = {
@@ -56,18 +55,6 @@ export const updateStudentsData = (state=initialStateUpdatedStudents, action={})
   switch (action.type) {
     case UPDATE_STUDENTS_DATA:
       return Object.assign({}, state, {updatedStudents: action.payload})
-    default:
-      return state
-  }
-}
-
-const initialStateFilteredStudents = {
-  filteredStudents: []
-}
-export const filterStudentsData = (state=initialStateFilteredStudents, action={}) => {
-  switch (action.type) {
-    case FILTERED_STUDENTS_DATA:
-      return Object.assign({}, state, {filteredStudents: action.payload})
     default:
       return state
   }

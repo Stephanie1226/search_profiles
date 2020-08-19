@@ -5,8 +5,7 @@ import {
   REQUEST_STUDENTS_PENDING,
   REQUEST_STUDENTS_SUCCESS,
   REQUEST_STUDENTS_FAILED,
-  UPDATE_STUDENTS_DATA,
-  FILTERED_STUDENTS_DATA
+  UPDATE_STUDENTS_DATA
  } from './constants'
 
 
@@ -25,6 +24,4 @@ export const requestStudents = () => (dispatch) => {
     .catch(error => dispatch({ type: REQUEST_STUDENTS_FAILED, payload: error }))
 }
 
-export const updateStudentsData = (data) => ({ type: UPDATE_STUDENTS_DATA, payload: data })
-
-export const filterStudentsData = (data) => ({ type: FILTERED_STUDENTS_DATA, payload: data })
+export const updateStudentsData = (data) => ({ type: UPDATE_STUDENTS_DATA, payload: data})
