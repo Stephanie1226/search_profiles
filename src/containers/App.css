@@ -1,0 +1,11 @@
+.main-container {
+	position: absolute;
+	background-color: white;
+	border: 1px solid #DBDEDA;
+	border-radius: 15px;
+	box-shadow: 3px 3px 10px #AEB1AC;
+	top: 10%;
+	bottom: 10%;
+	left: 15%;
+	right: 15%;
+}

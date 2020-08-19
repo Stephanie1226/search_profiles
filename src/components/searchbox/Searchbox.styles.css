@@ -1,0 +1,12 @@
+.searchbox-style {
+  border: 0;
+  outline: 0;
+  height: 45px;
+  width: 95%;
+  font-size: 20px;
+  background: transparent;
+  border-bottom: 1px solid #C0C2BF;
+}
+.searchbox-style::placeholder {
+	font-family: 'Crimson Text', serif;
+}

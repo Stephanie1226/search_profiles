@@ -1,0 +1,9 @@
+.grades-styles {
+	text-align: left;
+	margin-left: 210px;
+	line-height: 22px;
+	height: 190px;
+}
+.grades-styles span {
+	font-family: 'Sorts Mill Goudy', serif;
+}

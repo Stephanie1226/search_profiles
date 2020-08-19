@@ -1,0 +1,9 @@
+.scroll-container {
+	position: absolute;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	top: 120px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

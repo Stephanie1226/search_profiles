@@ -1,0 +1,63 @@
+.student-display {
+	width: 100%;
+  height: 200px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+.student-img-style {
+  margin: 30px;
+  border: 0.5px solid #DBDEDA;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+img {
+	border-radius: 50%;
+	height: 100%;
+	width: 100%;
+}
+.info-container {
+	height: 200px;
+	text-align: left;
+	line-height: 28px;
+}
+.info-container h1 {
+  font-family: 'Righteous', cursive;
+}
+.info-container span {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+}
+.expand-btn {
+  position: absolute;
+  right: 70px;
+  margin: auto;
+  width: 25px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.expand-btn-inner-close,
+.expand-btn-inner-open {
+  width: inherit;
+  text-align: center;
+}
+.expand-btn-inner-close:before, .expand-btn-inner-close:after,
+.expand-btn-inner-open:before, .expand-btn-inner-open:after {
+  position: absolute;
+  content: '';
+  height: 5px;
+  width: inherit;
+  background: #BCC1BB;
+  top: 12px;
+  left: 5px;
+}
+.expand-btn-inner-close:before {
+  transform: rotate(90deg);  
+}
+.expand-btn-inner-close:after,
+.expand-btn-inner-open:after { 
+  transform: rotate(0deg);  
+}
+
