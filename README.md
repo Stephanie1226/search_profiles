@@ -6,6 +6,6 @@
 
     ```
     $ git clone https://github.com/Stephanie1226/search_profiles.git
-    $ cd music_search
+    $ cd search_profiles
     $ npm install
     $ npm start
