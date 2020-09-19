@@ -1,4 +1,5 @@
 # search_profiles
+* This is hosting on Firebase: https://search-profiles-fa7de.web.app
 * search_profiles is using ReactJS App: on http://localhost:3000/
 
 ## Set up
